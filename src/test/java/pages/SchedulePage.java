@@ -9,21 +9,18 @@ public class SchedulePage extends BasePage{
         super(driver);
     }
 
-    public SchedulePage insertName(String name){
+    public void insertName(String name){
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/div[2]/div[2]/input")).sendKeys(name);
-        return this;
     }
-    public SchedulePage insertNumberPhone(String numberPhone){
+    public void insertNumberPhone(String numberPhone){
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/div[2]/div[3]/input")).sendKeys(numberPhone);
-        return this;
     }
-    public SchedulePage add(){
+    public void add(){
         driver.findElement(By.xpath("//*[@id=\"app\"]/button")).click();
-        return this;
 
     }
 
-    public SchedulePage deleteRecord(String recordName){
+    public void deleteRecord(String recordName){
         int i = 2;
         String valueTr;
 
@@ -38,20 +35,14 @@ public class SchedulePage extends BasePage{
                 }
             }
         }
-        return this;
     }
-    public SchedulePage addRegister(){
+    public void addRegister(){
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/div[3]/button[1]")).click();
-        return this;
     }
     public boolean confirmation(String name){
 
         WebElement confirmationElement = driver.findElement(By.xpath("//*[@id=\"app\"]/table/tbody"));
-        if(confirmationElement.getText().contains(name)){
-            return true;
-        }else {
-            return false;
-        }
+        return confirmationElement.getText().contains(name);
 
     }
 
@@ -59,11 +50,7 @@ public class SchedulePage extends BasePage{
 
         WebElement verifyElement = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/div[2]/span"));
 
-        if(verifyElement.getText().isEmpty()){
-            return false;
-        }else {
-            return true;
-        }
+        return !verifyElement.getText().isEmpty();
     }
 
     public boolean confirmationDelete(String name){
