@@ -73,11 +73,4 @@ public class StepDefs {
 
     }
 
-    @Then("A agenda deve estar sem o nome {string}")
-    public void AgendaVazia(String name){
-        //Assert.assertTrue(new SchedulePage(driver).confirmationDelete(name));
-        Assert.assertTrue(new SchedulePage(driver).confirmationDelete(name));
-
-
-    }
 }
