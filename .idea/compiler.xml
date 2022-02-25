@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ScheduleAutomation" />
+        <module name="Schedule_Automation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Schedule_Automation" target="8" />
       <module name="ScheduleAutomation" target="8" />
     </bytecodeTargetLevel>
   </component>

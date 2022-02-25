@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.concurrent.TimeUnit;
+
 public class SchedulePage extends BasePage{
     public SchedulePage(WebDriver driver) {
         super(driver);
@@ -40,7 +42,7 @@ public class SchedulePage extends BasePage{
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/div[3]/button[1]")).click();
     }
     public boolean confirmation(String name){
-
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement confirmationElement = driver.findElement(By.xpath("//*[@id=\"app\"]/table/tbody"));
         return confirmationElement.getText().contains(name);
 
