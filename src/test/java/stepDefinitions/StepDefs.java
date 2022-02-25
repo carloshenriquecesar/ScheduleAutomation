@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import pages.SchedulePage;
@@ -64,12 +65,19 @@ public class StepDefs {
     public void confirmation(String registro){
         Assert.assertTrue(new SchedulePage(driver).confirmation(registro));
 
-
     }
 
     @Then("the agenda must not be registered with the name {string}")
     public void calendarWithNoRegistration(String name){
-        driver.findElement(By.xpath("//*[@id=\"app\"]/table/tbody")).getText().contains(name);
+        Assert.assertTrue(new SchedulePage(driver).confirmationDelete(name));
+
+    }
+
+    @Then("A agenda deve estar sem o nome {string}")
+    public void AgendaVazia(String name){
+        //Assert.assertTrue(new SchedulePage(driver).confirmationDelete(name));
+        Assert.assertTrue(new SchedulePage(driver).confirmationDelete(name));
+
 
     }
 }

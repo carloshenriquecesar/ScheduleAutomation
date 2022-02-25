@@ -66,4 +66,12 @@ public class SchedulePage extends BasePage{
         }
     }
 
+    public boolean confirmationDelete(String name){
+
+        WebElement confirmationElement = driver.findElement(By.xpath("//*[@id=\"app\"]/table/tbody"));
+        return !confirmationElement.getText().contains(name);
+
+    }
+
+
 }
